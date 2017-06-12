@@ -9,24 +9,21 @@
 //
 /*jslint indent: 4 */
 /*global require, exports */
-(function (self) {
+(function(global, factory)  {
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) : typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (factory((global.mimeType = global.mimeType || {})));
+}(this, function (exports) {
     "use strict";
 	var path, MimeType;
 
-	// If we're NodeJS I can use the path module.
-	// If I'm MongoDB shell, not available.
-	if (require !== undefined) {
-		path = require('path');
-	} else {
-		path = {
-			extname: function (filename) {
-				if (filename.lastIndexOf(".") > 0) {
-					return filename.substr(filename.lastIndexOf("."));
-				}
-			}
-		};
-	}
-
+	path = {
+        extname: function (filename) {
+            if (filename.lastIndexOf(".") > 0) {
+                return filename.substr(filename.lastIndexOf("."));
+            }
+        }
+    };
+	
 	if (exports === undefined) {
 		exports = {};
 	}
@@ -757,12 +754,11 @@
 		exports.forEach = MimeType.forEach;
 	}
     // Note: Chrome now defines window.MimeType, only define for legacy usage.
-    if (self.MimeType === undefined) {
-        self.MimeType = MimeType;
+	if (exports.MimeType === undefined) {
+	    exports.MimeType = MimeType;
     }
     // Note: Per Hypercuded switch to camel case to avoid Chrome issues.
-    if (self.mimeType === undefined) {
-        self.mimeType = MimeType;
+	if (exports.mimeType === undefined) {
+	    exports.mimeType = MimeType;
     }
-	return self;
-}(this));
+}));
