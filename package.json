@@ -1,6 +1,6 @@
 {
 	"name" : "mimetype",
-	"version" : "0.0.8",
+	"version" : "0.0.8-j5int",
 	"description" : "A mime type catalog driven by filename extensions.",
     "license": "BSD-2-Clause",
 	"main" : "./mimetype.js",
