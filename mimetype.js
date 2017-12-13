@@ -610,6 +610,7 @@
 	MimeType.set(".ram,.ra", "audio/x-pn-realaudio");
 	MimeType.set(".rmp", "audio/x-pn-realaudio-plugin");
 	MimeType.set(".wav", "audio/x-wav");
+	MimeType.set(".amr", "audio/amr");
 	MimeType.set(".cdx", "chemical/x-cdx");
 	MimeType.set(".cif", "chemical/x-cif");
 	MimeType.set(".cmdf", "chemical/x-cmdf");
